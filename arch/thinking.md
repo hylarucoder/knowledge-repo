@@ -11,3 +11,8 @@
 ## 单体应用->多服务
 
 - SSO
+
+## TODO
+
+- [ ] 抽象与代码生成
+- [ ] MonoRepo / PolyRepo
