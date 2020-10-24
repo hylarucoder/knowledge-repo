@@ -85,8 +85,23 @@ django-pipeline
 - ipython
 - jupyter notebook
 - ipdb
+- https://github.com/joerick/pyinstrument
+- https://github.com/joerick/pyinstrument_cext
+- speedscope
+- pyspeedscope
+
+## 0x08 dry python
+
+- https://github.com/dry-python/returns
+- https://github.com/jd/tenacity
+
+## 0x09 clear code
 
 ## 0x08 工具
+
+## 0xBB News
+
+- https://github.com/markshannon/faster-cpython
 
 ## 0xCC 推荐源码
 
@@ -107,6 +122,11 @@ django-pipeline
 ### 高级
 
 以及一个非常神奇的进阶项目 500lines https://github.com/aosabook/500lines
+
+### 其他
+
+#### 爬虫
+- https://github.com/howie6879/ruia
 
 ## 0xDD 书籍
 
