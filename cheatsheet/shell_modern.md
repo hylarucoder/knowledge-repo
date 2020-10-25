@@ -28,7 +28,23 @@ fd -x wc -l \; -e rs
 
 ### grep -> ripgrep
 
-## Dev Pal
+## Dev
 
 ### FZF
+
+### Autojump
+
+## Tools
+
+### mycli
+
+### pgcli
+
+### convert
+
+### k9s
+
+### tokei
+
+### git
 
