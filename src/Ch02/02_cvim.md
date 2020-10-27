@@ -188,9 +188,7 @@ brew install --with-jansson --HEAD universal-ctags/universal-ctags/universal-cta
 
 ### 8.3 Bash / Ngnix / SQL
 
-### 8.4 Markdown / ReStructedText
-
-平日里记笔记主要使用 markdown 和 ReStructedText 来搞。
+### 8.4 Markdown
 
 ### 8.5 Go
 
@@ -201,10 +199,6 @@ brew install --with-jansson --HEAD universal-ctags/universal-ctags/universal-cta
 ```bash
 vim --startuptime /tmp/startup.log +q && vim /tmp/startup.log
 ```
-
-## 0xCC 插件
-
-- https://github.com/sheerun/vim-polyglot
 
 ## 0xEE 感谢
 
