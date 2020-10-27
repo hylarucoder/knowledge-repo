@@ -1,93 +1,12 @@
-# MySQL
+# 关系型数据库
 
-## 0x01 安装，配置，基本 shell 命令
+## 锁
 
-### 字符编码
+表级锁
 
-> UTF-8 , Please
+行级锁
 
-真的很讨厌那些用 GBK 的程序员啊！
-
-    # 注意，下面的设置 MySQL 是无法保存 emoji 的 /[mysql]default-character-set=utf8[mysqld]collation-server = utf8_general_ciinit-connect='SET NAMES utf8'character-set-server = utf8
-
-然后在 mysql console 执行：
-
-    show variables like "%character%";show variables like "%collation%";
-
-如下即可
-
-## 0x02 MySQL 配套工具
-
-- JetBrain 的 Datagrip 作为 编写大段 SQL 语句的 IDE
-- 通过网络或者 Dash 查看文档
-- 强烈推荐 mycli 作为正常情况下的 MySQL 命令的替代品。
-- MySQL 官方自带工具
-
-只挑选几个重要的，常用的说一说。
-
-    # 启动 MYSQL# 常规 mysqlmysql -u username -p password## 命令的用户名和密码最好与命令合在一起 mysqlshow -uroot -psomepass some_db;# 导入数据 mysql -u username -p password < filename# 优雅的导入数据，可以查看进度条的 Hackspv -i 1 -p -t -e /Users/twocucao/Codes/update_new_date.sql | mysql -uadmin -p123456 -h 192.168.2.254 --port=3306 some_db# 导出数据 mysqldump -u username -p password database [tables] > filenamemysqldump database table_bame --where="date_column BETWEEN '2012-07-01 00:00:00' and '2012-12-01 00:00:00'"# ref : http://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#option_mysqldump_where
-
-## 0x03 MySQL 常用代码
-
-    SHOW DATABASES;CREATE DATABASE database;USE database;SHOW TABLES;DESCRIBE table;SHOW COLUMN FROM table;DROP DATEBASE;
-
-## 0x04 常用代码片段
-
-### 1. 数据清洗常用脚本
-
-    -- 少量去重 CREATE TABLE everyday_info_temp AS SELECT * FROM  everyday_info GROUP BY id,date,numbers;-- 大量去重 CREATE TABLE everyday_info_temp AS SELECT * FROM  everyday_info GROUP BY id,date,numbers ORDER BY null;
-
-http://stackoverflow.com/questions/16568228/how-to-transpose-mysql-table-rows-into-columns
-
-    SELECT @max := MAX(ID)+ 1 FROM ABC;
-
-      PREPARE stmt FROM 'ALTER TABLE ABC AUTO_INCREMENT = ?';
-      EXECUTE stmt USING @max;
-
-      DEALLOCATE PREPARE stmt;
-
-mysql> delete from shophtml; Query OK, 117141 rows affected (4 min 2.92 sec) TRUNCATE shophtml; ### 2. 用户管理常用脚本
-
-    SELECT User FROM mysql.user;
-
-### 3. 备份迁移常用脚本
-
-    #! /bin/bash
-
-    TIMESTAMP=$(date +"%F")
-    BACKUP_DIR="/mnt/$TIMESTAMP"
-    MYSQL_USER="root"
-    MYSQL=/usr/bin/mysql
-    MYSQL_PASSWORD="password"
-    MYSQLDUMP=/usr/bin/mysqldump
-    DATABASE="cyjoycity"
-
-    mkdir -p "$BACKUP_DIR/mysql"
-
-    for t in $($MYSQL -NBA -u $MYSQL_USER -p$MYSQL_PASSWORD -D $DATABASE -e 'show tables')
-    do
-        echo "DUMPING TABLE: $DB.$t"
-        $MYSQLDUMP --force --opt --user=$MYSQL_USER -p$MYSQL_PASSWORD $DATABASE $t | gzip > "$BACKUP_DIR/mysql/$t.sql.gz"
-    done
-
-### 4. 性能优化常用脚本
-
-SHOW FULL PROCESSLIST;
-
-### 6. 远程连接
-
-    /etc/mysql/my.cnf
-
-    # bind-address = 127.0.0.1
-
-    GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password' WITH GRANT OPTION;
-    FLUSH PRIVILEGES;
-
-### 5. 其他脚本
-
-    # 6. 随机选择 10 组记录-- 慢速 SELECT * FROM Table_Name ORDER BY RAND() LIMIT 0,10;-- 快速 SELECT nameFROM random AS r1 JOIN(SELECT CEIL(RAND() *(SELECT MAX(id)FROM random)) AS id)AS r2WHERE r1.id >= r2.idORDER BY r1.id ASCLIMIT 1
-
-    # 1. 查询时间 select date_format(create_time, '%Y-%m-%d') as day from table_nameselect from_unixtime(create_time, '%Y-%m-%d') as day from table_name# 2. CASE WHEN 案例## 2.1 返回同一列多个结果## 2.2 行列值颠倒# 3. 替换某字段内容 update table_name set content = REPLACE(content, 'aaa', 'bbb')  where (content like '%aaa%')# 4. 获取表中某字段包含某字符串的数据 SELECT * FROM `表名` WHERE LOCATE('关键字', 字段名）# 5. 字符串处理 SELECT SUBSTRING（字段名，1,4) FROM 表名# 6. 求解数字的连续范围 select min(number) start_range,max(number) end_rangefrom(select number,rn,number-rn diff from(select number,@number:=@number+1 rn from test_number,(select @number:=0) as number) b) c group by diff;
+页面锁
 
 ## 0x05 性能优化切入点
 
