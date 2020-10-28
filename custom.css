@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+/* 要注意表单元素并不继承父级 font 的问题 */
+body,
+button,
+input,
+select,
+a,
+textarea {
+  font-family: PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB,
+    Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+}
+
+/* 代码片断 */
+a,
+pre,
+code,
+pre tt {
+  font-family: Courier, "Courier New", monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: PingFang SC, Verdana, Helvetica Neue, Microsoft Yahei,
+    Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+}
