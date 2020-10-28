@@ -1,11 +1,10 @@
+# Shell
+
 ## 0x00 前言
-
-常用 Shell Command, 拷贝在身边，一用好多年
-
-> 声明：Bash 命令适合那些十来行代码可以搞定的比较简单的逻辑，一般情况下用于处理一些服务的开启。至于部署，强烈推荐 Ansible. 目前在项目中使用 Ansible 从零开始无人值守部署一台机器。基本上完美到极致。
 
 ## 0x01 快捷键
 
+```
 - 「c-c」 : 中断当前命令。
 - 「c-z」 : 当前程序暂停，bg 切换后台运行，使用 fg 可以调回
 - 「tab」 : 补全
@@ -19,13 +18,16 @@
 - 「c-k」 : 删除光标到行尾
 - 「c-l」 : 清屏
 - 「c-x,c-e」 : 用默认编辑器编辑当前命令（这样就可以把其他文本移动扔掉了。)
+```
 
 ## 0x02 帮助
 
 查找帮助
+
 - man
 - whatis / which / where
 - tldr
+
 值得一提的就是 tldr, 直接可以在上面查看命令的常规使用。实在是碉堡了。
 
 ```
@@ -64,31 +66,52 @@ It can be used for logging or executing commands on a remote server.
 
 ## 0x03 macOS 用户
 
-如果你和我一样使用的是 mac 系统，请先参考下面的链接
+如果你和我一样使用的是 mac 系统
 
-https://github.com/twocucao/dotfiles/blob/master/install_brew_packages.sh
+可以考虑将部分 FreeBSD 的工具换成 gnu
+
+```
+brew install autoconf bash binutils coreutils diffutils ed findutils flex gawk \
+    gnu-indent gnu-sed gnu-tar gnu-which gpatch grep gzip less m4 make nano \
+    screen watch wdiff wget
+```
+
+bashrc/zshrc 加上如下命令
+
+```
+if type brew &>/dev/null; then
+  HOMEBREW_PREFIX=$(brew --prefix)
+  # gnubin; gnuman
+  for d in ${HOMEBREW_PREFIX}/opt/*/libexec/gnubin; do export PATH=$d:$PATH; done
+  # I actually like that man grep gives the BSD grep man page
+  #for d in ${HOMEBREW_PREFIX}/opt/*/libexec/gnuman; do export MANPATH=$d:$MANPATH; done
+fi
+```
 
 经过上面一步，则基本上 find sed tar which 这些命令使用的 gnu 版本 (linux 版本）, 而非系统自带的 unix 版本了。
 
 ## 0x04 基本命令 - old fashion
 
+```bash
 文件 / 目录 mkdir / rm
 查找文件 cd / cp / pwd / find
 查看文件 more / less / tail / diff / cat / grep
 用户权限 chown / chmod
 复制 / 粘贴 / 同步 / 链接 cp / rsync / ln
 挂载 mount
-
 ```
+
+```bash
 # 创建和删除
 mkdir
 mkdir -p a/b/c
+
 rm
 rm -rf dir/file/regex
 rm *log# 等价 find ./ -name "*log" -exec rm {};
+
 mv
 cp
-find ./ | wc -l
 cp -r source_dir dest_dir
 rsync --progress -a source_dir dest_dir
 rsync -vr --progress you_folder_here twocucao@192.168.2.151:/Users/twocucao/Codes/# 目录切换 ls -lrt
@@ -104,10 +127,10 @@ chown -R tuxapp source/chmod a+x myscript
 ln cc ccA
 ln -s cc ccTo
 cat -v record.log | grep AAA | grep -v BBB | wc -l
-
+find ./ | wc -l
 ```
 
-```
+```bash
 查找文件之 find (gfind)
 ## Find
 find . \( -name "*.txt" -o -name "*.pdf" \) -print
@@ -149,8 +172,8 @@ find . -type f -printf '%s %p\n'| sort -nr | head -10 | awk '{$1/=1024*1024;prin
 {}: A placeholder token that will be replaced with the path of the search result (documents/images/party.jpg).{.}: Like {}, but without the file extension (documents/images/party).{/}: A placeholder that will be replaced by the basename of the search result (party.jpg).{//}: Uses the parent of the discovered path (documents/images).{/.}: Uses the basename, with the extension removed (party).# Convert all jpg files to png files:fd -e jpg -x convert {} {.}.png# Unpack all zip files (if no placeholder is given, the path is appended):fd -e zip -x unzip# Convert all flac files into opus files:fd -e flac -x ffmpeg -i {} -c:a libopus {.}.opus# Count the number of lines in Rust files (the command template can be terminated with ';'):fd -x wc -l \; -e rs
 ```
 
-```
-压缩 / 解压缩
+```bash
+# 压缩 / 解压缩
 7z / 7za /7zr
 tar / gzip / unzip/ unrar
 # 打包
@@ -169,13 +192,49 @@ gzip 是讲一个文件变成一个压缩文件
 
 ### 文本篇
 
-```
-grep match_pattern file-o 只输出匹配的文本行-v 只输出没有匹配的文本行-c 统计文件中包含文本的次数-n 打印匹配行号-i 搜索时符合大小写-l 之打印文件名 grep "class" . -R -n # 多级目录中对文本递归搜索 grep -e "class" -e "vitural" file # 匹配多个模式 grep "test" file* -lZ| xargs -0 rm # grep 输出以、0 作为结尾符的文件名：（-z）-d 定义定界符-n 输出为多行-l {} 指定替换字符串 cat file.txt | xargs # 打印多行 cat file.txt | xargs -n 3 # 分割多行 cat file.txt | xargs -I {} ./command.sh -p {} -1-0 指定、0 为输入定界符 find source_dir/ -type f -name "*.cpp" -print0 |xargs -0 wc -lsort 排序-n 按数字进行排序-d 按字典序进行排序-r 逆序排序-k N 指定按照第 N 列排序 sort -nrk 1 data.txtsort -bd data // 忽略像空格之类的前导空白字符 sort unsort.txt | uniq > sorted.txt # 消除重复行 sort unsort.txt | uniq -c # 统计各行在文件中出现的次数 sort unsort.txt | uniq -d # 找出重复行# 用 tr 进行转换# cut 按列切分文本 cut -f2,4 filename #截取文件的第 2 列和第 4 列 cut -f3 --complement filename #去文件除第 3 列的所有列 cut -f2 -d";" filename -d #指定定界符 cut -c1-5 file #打印第一到 5 个字符 cut -c-2 file  #打印前 2 个字符# paste 按列拼接文本 paste file1 file2 -d ","# wc 统计行和字符的工具 wc -l file # 统计行数 wc -w file # 统计单词数 wc -c file # 统计字符数# sed 文本替换利器 sed 's/text/replace_text/' file  # 首处替换 sed 's/text/replace_text/g' file  # 全局替换 sed -i 's/text/repalce_text/g' file # 替换文件 sed '/^$/d' file  # 移除空白行 sed -i 's/twocucao/micheal/g' xx.dump.sqlsed -n 634428,887831p insert_doc_ids_new.sql > uninserted_sql.sql
+```bash
+grep match_pattern file
+
+	-o 只输出匹配的文本行
+	-v 只输出没有匹配的文本行
+	-c 统计文件中包含文本的次数
+	-n 打印匹配行号
+	-i 搜索时符合大小写
+	-l 之打印文件名
+
+grep "class" . -R -n # 多级目录中对文本递归搜索
+grep -e "class" -e "vitural" file # 匹配多个模式
+grep "test" file* -lZ| xargs -0 rm # grep 输出以、0 作为结尾符的文件名：（-z）-d 定义定界符-n 输出为多行-l {} 指定替换字符串 cat file.txt | xargs # 打印多行 cat file.txt | xargs -n 3 # 分割多行
+cat file.txt | xargs -I {} ./command.sh -p {} -1-0 指定、0 为输入定界符
+find source_dir/ -type f -name "*.cpp" -print0 |xargs -0 wc -l
+
+# sort 排序
+
+-n 按数字进行排序
+-d 按字典序进行排序
+-r 逆序排序
+-k N 指定按照第 N 列排序
+sort -nrk 1 data.txtsort -bd data // 忽略像空格之类的前导空白字符
+sort unsort.txt | uniq > sorted.txt # 消除重复行
+sort unsort.txt | uniq -c # 统计各行在文件中出现的次数
+sort unsort.txt | uniq -d # 找出重复行# 用 tr 进行转换
+
+# cut 按列切分文本 cut -f2,4 filename
+# 截取文件的第 2 列和第 4 列 cut -f3 --complement filename #去文件除第 3 列的所有列 cut -f2 -d";" filename -d #指定定界符 cut -c1-5 file
+# 打印第一到 5 个字符 cut -c-2 file 
+# 打印前 2 个字符# paste 按列拼接文本 paste file1 file2 -d ","
+
+# wc 统计行和字符的工具 wc -l file # 统计行数 wc -w file # 统计单词数 wc -c file # 统计字符数
+
+# sed 文本替换利器 sed 's/text/replace_text/' file 
+# 首处替换 sed 's/text/replace_text/g' file 
+# 全局替换 sed -i 's/text/repalce_text/g' file # 替换文件 sed '/^$/d' file 
+# 移除空白行 sed -i 's/twocucao/micheal/g' xx.dump.sqlsed -n 634428,887831p insert_doc_ids_new.sql > uninserted_sql.sql
 ```
 
 ### 用户篇
 
-```
+```bash
 # 添加 yaweb 为 sudo 用户
 usermod -aG sudo yaweb
 所有用户和用户组信息保存在：/etc/passwd , /etc/group
@@ -195,18 +254,36 @@ ssh-copy-id root@192.168.2.253
 
 ### 网络篇
 
-/etc/hostname /etc/hosts netstat -a
+```bash
+/etc/hostname
+/etc/hosts
+netstat -a
+```
 
 ### 磁盘篇
 
-```
-# 查看当前目录大小 du -shdu -sh `ls` | sort# 查看当前目录的下一级文件和子目录的磁盘容量 du -lh --max-depth=1
+```bash
+# 查看当前目录大小
+du -sh
+du -sh `ls` | sort
+# 查看当前目录的下一级文件和子目录的磁盘容量
+du -lh --max-depth=1
 ```
 
 ### 进程管理
 
-```
-ps -ef | grep twocucao ps -lu twocucao # 完整显示 ps -ajx ps au | grep phantomjs | awk '{ print $2 }' | xargs kill -9  top htop  lsof -i:3306 lsof -u twocucao  kill -9 pidnum  # 将用户 colin115 下的所有进程名以 av_开头的进程终止：  ps -u colin115 |  awk '/av_/ {print "kill -9 " $1}' | sh # 将用户 colin115 下所有进程名中包含 HOST 的进程终止：  ps -fe| grep colin115|grep HOST |awk '{print $2}' | xargs kill -9;
+```bash
+ps -ef | grep twocucao ps -lu twocucao # 完整显示
+ps -ajx
+ps au | grep phantomjs | awk '{ print $2 }' | xargs kill -9 
+top htop 
+lsof -i:3306
+lsof -u twocucao 
+kill -9 pidnum 
+# 将用户 colin115 下的所有进程名以 av_开头的进程终止
+ps -u colin115 |  awk '/av_/ {print "kill -9 " $1}' | sh
+# 将用户 colin115 下所有进程名中包含 HOST 的进程终止：
+ps -fe | grep colin115 | grep HOST | awk '{print $2}' | xargs kill -9;
 ```
 
 Systemd
@@ -236,6 +313,7 @@ WantedBy=multi-user.target
 ```
 
 ### 性能监控
+
 ### 内存瓶颈
 
 ```
@@ -243,36 +321,11 @@ htop
 free # 从 /proc/meminfo 读取数据
 IO 瓶颈
 # ubuntu 下 可以 mac 下不可以 iostat -d -x -k 1 1
-如果 %iowait 的值过高，表示硬盘存在 I/O 瓶颈。 如果 %util 接近 100%，说明产生的 I/O 请求太多，I/O 系统已经满负荷，该磁盘可能存在瓶颈。 如果 svctm 比较接近 await，说明 I/O 几乎没有等待时间； 如果 await 远大于 svctm，说明 I/O 队列太长，io 响应太慢，则需要进行必要优化。 如果 avgqu-sz 比较大，也表示有大量 io 在等待。
-```
-
-## 0x05 新命令 new fashion
-
-```
-外部检查
-# 域名与 IP 分析 dig  # 端口分析 nmap -v -sS -O 192.168.2.0/24
-FTP Client 提交文件
-#!/bin/bash  lftp <<SCRIPT set ftps:initial-prot "" set ftp:ssl-force true set ftp:ssl-protect-data true set ssl:verify-certificate no open <ftp://xxx.xxx.xxx.xxx:21> user ftpuser ftppass lcd /Users/<username>/Ftps/Workspace/libs put /Users/<username>/Ftps/Workspace/repos/xxx.jar exit SCRIPT
-媒体编辑
-抽取视频中的音乐
-# 抽取 mp4 中的音频并保存为 mp3 mkdir outputs for f in *.mp4; do ffmpeg -i "$f" -c:a libmp3lame "outputs/${f%.mp4}.mp3"; done
-批量获取
-convert {{image1.png}} {{image2.png}} {{image3.png}} -delay {{100}} {{animation.gif}}
-有趣的重命名
-常用 mv 进行重命名，有的时候这个功能显得很不实用，比如，我要把当前的文件夹内的所有图片命名为 0001.png-9999.png, 这个 mv 时候就相当的鸡肋。
-brew install renameutils mmv rename
-如果对于大批的文件需要重命名，比如有接近 10000 个文件，大量乱码文件改为 0001.jpg - 9999.jpg
-这种东西放在 IPython 里面写 Python 脚本也还 OK, 但是总想直接一行命令解决
-常用组合技
-# 查看 windows txt 文件中的查看二字的数量 cat * | iconv -f GBK | grep 查看 | wc -l
-开发工具
-batexajson_pppython -m json.tooltigtokei
-Tmux
-tmux  tmux new -s you_tmux_name tmux ls tmux a tmux a -t you_tmux_name c-b + d tmux kill-session -t you_tmux_name
-进阶工具 tmuxp
-部署工具
-进程守护 supervisor
-supervisorctl tail -f you_app_name stdoutsupervisorctl tail -100 you_app_name stderr
+如果 %iowait 的值过高，表示硬盘存在 I/O 瓶颈。
+如果 %util 接近 100%，说明产生的 I/O 请求太多，I/O 系统已经满负荷，该磁盘可能存在瓶颈。
+如果 svctm 比较接近 await，说明 I/O 几乎没有等待时间；
+如果 await 远大于 svctm，说明 I/O 队列太长，io 响应太慢，则需要进行必要优化。
+如果 avgqu-sz 比较大，也表示有大量 io 在等待。
 ```
 
 ## 0x06 资料推荐
