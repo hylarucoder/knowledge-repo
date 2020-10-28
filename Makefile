@@ -19,3 +19,7 @@ help:
 
 start: ## start
 	mdbook serve
+
+setup: ## setup
+	cargo install mdbook
+
