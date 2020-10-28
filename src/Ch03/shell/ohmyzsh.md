@@ -1,4 +1,4 @@
-# 用 Oh My Zsh 提速开发环境
+# Oh My Zsh
 
 ## setup
 

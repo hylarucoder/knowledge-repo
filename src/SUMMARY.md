@@ -3,28 +3,30 @@
 # 第一部分 器、术、道
 
 - [第一章 - 综述](./Ch01/README.md)
-	- [生态](./Ch01/01_ECO.md)
+	- [生态](./Ch01/ECO.md)
 
 # 第二部分 器
 
 - [第二章 - 工具](./Ch02/README.md)
-	- [macOS](./Ch02/01_macOS.md)
-	- [ubuntu](./Ch02/01_ubuntu.md)
-	- [windows](./Ch02/01_windows.md)
-	- [Vim](./Ch02/02_cvim.md)
-	- [PyCharm](./Ch02/02_pycharm.md)
-	- [Oh My Zsh](./Ch02/03_ohmyzsh.md)
+	- [macOS](./Ch02/os/macOS.md)
+	- [ubuntu](./Ch02/os/ubuntu.md)
+	- [windows](./Ch02/os/windows.md)
+	- [Vim](./Ch02/editor/cvim.md)
+	- [PyCharm](./Ch02/editor/pycharm.md)
 
 - [第三章 - 语言](./Ch03/README.md)
-	- [Shell](./Ch03/01_shell.md)
-		- [Shell Modern](./Ch03/01_modern_shell.md)
+	- [Shell](./Ch03/shell/README.md)
+		- [Shell Modern](./Ch03/shell/modern_shell.md)
+		- [Oh My Zsh](./Ch03/shell/ohmyzsh.md)
 	- [Python](./Ch03/python/README.md)
 		- [Profiling](./Ch03/python/profiling.md)
 		- [AsyncIO](./Ch03/python/asyncio.md)
 		- [Type Hint](./Ch03/python/type_hint.md)
 		- [生态](./Ch03/python/python_awesome.md)
-	- [Golang](./Ch03/03_golang.md)
-	- [Rust](./Ch03/03_rust.md)
+	- [Golang](./Ch03/golang/README.md)
+		- [Profiling](./Ch03/golang/profiling.md)
+	- [Rust](./Ch03/rust/README.md)
+		- [Profiling](./Ch03/rust/profiling.md)
 
 - [第四章 - 框架 / 库](./Ch04/README.md)
 	- [后端](./Ch04/backend/README.md)
