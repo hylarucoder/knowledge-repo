@@ -1,5 +1,4 @@
 # PostgreSQL
-
 ## 0x00 前言
 
 本文为 Cheatsheet 类型文章，用于记录我在日常编程中经常使用的 PostgreSQL 相关和命令。
