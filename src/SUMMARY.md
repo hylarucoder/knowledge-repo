@@ -14,16 +14,18 @@
 	- [Vim](./Ch02/02_cvim.md)
 	- [PyCharm](./Ch02/02_pycharm.md)
 	- [Oh My Zsh](./Ch02/03_ohmyzsh.md)
+
 - [第三章 - 语言](./Ch03/README.md)
 	- [Shell](./Ch03/01_shell.md)
 		- [Shell Modern](./Ch03/01_modern_shell.md)
-	- [Python](./Ch03/02_python.md)
-		- [Profiling](./Ch03/02_python_profiling.md)
-		- [AsyncIO](./Ch03/02_python_async_io.md)
-		- [Type Hint](./Ch03/02_python_type_hint.md)
-		- [生态](./Ch03/02_python_awesome.md)
+	- [Python](./Ch03/python/README.md)
+		- [Profiling](./Ch03/python/profiling.md)
+		- [AsyncIO](./Ch03/python/asyncio.md)
+		- [Type Hint](./Ch03/python/type_hint.md)
+		- [生态](./Ch03/python/python_awesome.md)
 	- [Golang](./Ch03/03_golang.md)
 	- [Rust](./Ch03/03_rust.md)
+
 - [第四章 - 框架 / 库](./Ch04/README.md)
 	- [后端](./Ch04/backend/README.md)
 		- [Django](./Ch04/backend/django.md)
@@ -53,10 +55,13 @@
 	- [消息队列](./Ch05/mq/README.md)
 		- [RabbitMQ](./Ch05/mq/rabbitmq.md)
 		- [Kafka](./Ch05/mq/kafka.md)
+
 - [第六章 - 代码质量](./Ch06/README.md)
 	- [Golang](./Ch06/golang.md)
+
 - [第七章 - 分布式](./Ch07/README.md)
 	- [设计模式的本质](./Ch07/golang.md)
+
 - [第八章 - 案例](./Ch08/README.md)
 	- [技术方案](./Ch08/biz/README.md)
 		- [单点登陆](./Ch08/biz/sso.md)
