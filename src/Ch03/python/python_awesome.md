@@ -61,9 +61,14 @@ App 模拟点击
 
 ## 0x03 Flask Web
 
+```bash
+flask-sqlalchemy
+flask-migrate
+```
+
 ## 0x04 Django Web
 
-```
+```bash
 Django
 celery
 django-debug-toolbar
@@ -74,11 +79,22 @@ xadmin
 django-mptt
 django-redis
 djangorestframework
-django-compressor
-django-pipeline
 ```
 
 ## 0x04 FastApi Web
+
+```bash
+fastapi
+uvicorn
+jwt
+psycopg2-binary
+aiofiles
+orjson
+tortoise-orm
+asyncpg
+aioredis
+aiokafka
+```
 
 ## 0x07 调试与测试
 
@@ -125,15 +141,12 @@ django-pipeline
 
 ### 其他
 
-#### 爬虫
 - https://github.com/howie6879/ruia
 
 ## 0xDD 书籍
 
 [x] CPython Internals
 [x] Python Cookbook
-[x] Python 算法教程
-[x] Python 可视化编程
 [x] Python Web 开发实战
 [x] Python For Data Analysis
 [x] 深入浅出 MySQL
