@@ -98,13 +98,15 @@ aiokafka
 
 ## 0x07 调试与测试
 
-- ipython
-- jupyter notebook
-- ipdb
-- https://github.com/joerick/pyinstrument
-- https://github.com/joerick/pyinstrument_cext
-- speedscope
-- pyspeedscope
+```
+ipython
+jupyter notebook
+ipdb
+https://github.com/joerick/pyinstrument
+https://github.com/joerick/pyinstrument_cext
+speedscope
+pyspeedscope
+```
 
 ## 0x08 dry python
 
@@ -145,12 +147,12 @@ aiokafka
 
 ## 0xDD 书籍
 
-[x] CPython Internals
-[x] Python Cookbook
-[x] Python Web 开发实战
-[x] Python For Data Analysis
-[x] 深入浅出 MySQL
-[x] 大型网站技术架构。核心原理与案例分析
+- [x] CPython Internals
+- [x] Python Cookbook
+- [x] Python Web 开发实战
+- [x] Python For Data Analysis
+- [x] 深入浅出 MySQL
+- [x] 大型网站技术架构 - 核心原理与案例分析
 
 ## 0xEE 结语
 
