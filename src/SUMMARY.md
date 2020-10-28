@@ -35,6 +35,9 @@
 	- [前端](./Ch04/01_frontend.md)
 		- [React](./Ch04/02_react.md)
 		- [Vue](./Ch04/02_vue.md)
+	- [DevOps](./Ch04/01_devops.md)
+		- [Docker](./Ch04/02_docker.md)
+		- [Ansible](./Ch04/02_ansible.md)
 
 # 第三部分 术
 
@@ -42,7 +45,9 @@
 	- [关系型数据库](./Ch05/01_RDBMS.md)
 		- [MySQL](./Ch05/01_mysql.md)
 		- [PostgreSQL](./Ch05/01_postgres.md)
-	- [ElasticSearch](./Ch05/02_elasticsearch.md)
+	- [NoSQL](./Ch05/01_RDBMS.md)
+		- [MongoDB](./Ch05/02_mongodb.md)
+		- [ElasticSearch](./Ch05/02_elasticsearch.md)
 	- [Redis](./Ch05/02_redis.md)
 	- [消息队列](./Ch05/01_MQ.md)
 		- [RabbitMQ](./Ch05/03_rabbitmq.md)
