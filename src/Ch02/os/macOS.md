@@ -285,6 +285,20 @@ sudo scutil --set HostName "macOS"
 dscacheutil -flushcache
 ```
 
+### 常见编译问题解决思路
+
+```
+# 确保 xcode command line 是最新
+softwareupdate --all --install --force
+
+# 重新安装 xcode command line
+sudo rm -rf /Library/Developer/CommandLineTools
+sudo xcode-select --install
+
+# 如果还不能安装，建议到下面地址下载
+https://developer.apple.com/download/more/?=command%20line%20tools
+```
+
 ## 0xEE. 扩展阅读
 
 ---
