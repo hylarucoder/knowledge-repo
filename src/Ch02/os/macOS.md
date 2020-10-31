@@ -308,3 +308,5 @@ https://developer.apple.com/download/more/?=command%20line%20tools
 - [关于 Win10 我的回答](https://www.zhihu.com/question/32129337/answer/59379401)
 
 ---
+ChangeLog:
+ - **2020-10-31** 重修文字

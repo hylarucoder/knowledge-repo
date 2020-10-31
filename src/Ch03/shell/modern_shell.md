@@ -72,6 +72,16 @@ exit SCRIPT
 
 ## 0x05 网络
 
+```
+dig ns baidu.com
+
+### 如何查看占用 TCP/UDP 端口
+lsof -i -P -n | grep LISTEN
+netstat -tulpn | grep LISTEN
+lsof -i:22 ## see a specific port such as 22 ##
+nmap -sTU -O IP-address-Here
+```
+
 ## 0x07 文件浏览
 
 ## 0x08 多媒体处理
