@@ -15,6 +15,7 @@
 	- [editor](./Ch02/editor/README.md)
 		- [Vim](./Ch02/editor/cvim.md)
 		- [PyCharm](./Ch02/editor/pycharm.md)
+	- [Input](./Ch02/input/README.md)
 
 - [第三章 - 语言](./Ch03/README.md)
 	- [Shell](./Ch03/shell/README.md)

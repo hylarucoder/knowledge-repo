@@ -4,6 +4,8 @@
 
 CVim 最早基于 k-vim 配置的自用 vim 配置，现基于 skywind3000/vim-init 框架
 
+> only tested on neovim 5.0.dev
+
 ### 优势
 
 - Vim, not Vim like Plugin
@@ -29,7 +31,20 @@ CVim 最早基于 k-vim 配置的自用 vim 配置，现基于 skywind3000/vim-i
   - Golang
   - TypeScript
 
-## 0x01 基础操作
+## 0x01 安装与配置
+
+```
+brew install --HEAD neovim
+```
+
+## 0x02 从 VimL 到 Lua
+
+Lua 被 NeoVim 提升为一等公民
+
+- 内置 LuaJIT
+- 内置 LSP client
+
+## 0x02 基础操作
 
 ### 文件定位
 
