@@ -19,6 +19,7 @@
 
 - [第 03 章 - 语言](./Ch03/summary.md)
   - [编程语言](./Ch03/essential/summary.md)
+    - [Memory Management](./Ch03/essential/memory_management.md)
     - [Exception Handling](./Ch03/essential/exception_handling.md)
     - [Garbage collection](./Ch03/essential/garbage_collection.md)
     - [Test](./Ch03/essential/test.md)
@@ -56,8 +57,6 @@
 		- [Docker](./Ch04/devops/docker.md)
 		- [Ansible](./Ch04/devops/ansible.md)
 
-# 第三部分 术
-
 - [第 05 章 - 数据中间件](./Ch05/summary.md)
 	- [关系型数据库](./Ch05/sql/summary.md)
 		- [MySQL](./Ch05/sql/mysql.md)
@@ -70,6 +69,8 @@
 	- [消息队列](./Ch05/mq/summary.md)
 		- [RabbitMQ](./Ch05/mq/rabbitmq.md)
 		- [Kafka](./Ch05/mq/kafka.md)
+
+# 第三部分 术
 
 - [第 06 章 - 代码质量](./Ch06/summary.md)
 	- [Golang](./Ch06/golang.md)
@@ -93,3 +94,4 @@
 
 - [第 10 章 - 道](./Ch10/summary.md)
 	- [企业架构本质](./Ch10/01_yewu.md)
+
