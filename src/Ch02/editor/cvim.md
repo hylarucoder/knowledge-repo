@@ -1,35 +1,40 @@
-# 如何优雅的使用 CVim
+# CVim
 
 ## 0x00 什么是 CVim 呢？
 
-CVim 最早基于 k-vim 配置的自用 vim 配置，现基于 skywind3000/vim-init 框架
+CVim 基于 NeoVim 0.5+ , 整理 cvim 的配置，将大部分从 vimscript 迁移到 lua 中
 
-> only tested on neovim 5.0.dev
+> only tested on neovim 0.5
 
 ### 优势
 
-- Vim, not Vim like Plugin
-- 更现代化的编辑界面
+- Vim, Not Vim like
+- 更现代的编辑界面
   - 开始页面 via. vim-startify
-  - 文件侧边栏 via. Nerdtree
-  - 标签侧边栏 via. Vista
-  - 漂浮窗 via vim-clap
+  - 菜单栏 via. QuickUI
+  - 上下文菜单 via. QuickUI Context Menu
+  - 文件栏 via. LuaTree
+  - Tag 栏 via. Vista
+  - 更好的 Finder via. telescope
     - ctrl + p 文件搜索
-    - option + p 文件搜索
-  - Sidebar via
+  - 侧边栏 via
     - vim-signature
     - vim-signify
-  - 命令提示 via. vim-which-key
-- 更现代化的编辑，如
+- 全文搜索
   - Enhenced Basic Keys
     - j/k via accelerated
     - f/F/t/T via sneak
   - Enhenced Select
     - 缩进选择
+- 更现代化的编辑，如
 - For TypeScript/Python/Golang FullStack Engineer
   - Python
   - Golang
   - TypeScript
+
+### 劣势
+
+> self used, use it with your own caution
 
 ## 0x01 安装与配置
 
@@ -39,12 +44,7 @@ brew install --HEAD neovim
 
 ## 0x02 从 VimL 到 Lua
 
-Lua 被 NeoVim 提升为一等公民
-
-- 内置 LuaJIT
-- 内置 LSP client
-
-## 0x02 基础操作
+## 0x03 基础操作
 
 ### 文件定位
 
@@ -70,8 +70,6 @@ Lua 被 NeoVim 提升为一等公民
 - 高亮版 f/F t/T
   - f{char} F{char}
   - t{char} T{char}
-- <Leader><Leader>w
-- <Leader><Leader>o
 - /
 - ?
 
@@ -92,10 +90,6 @@ gv 选中上次的 visual 选中区
 行选择，块选择，扩展块选择
 
 多光标选择
-
-### Mode 转换
-
-- aio AIO
 
 ### 插入模式
 
