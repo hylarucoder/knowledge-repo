@@ -1,5 +1,17 @@
 # 单点登陆
 
+## SSO
+
+Single sign-on (SSO) is an authentication scheme that allows a user to log in with a single ID and password to any of several related, yet independent, software systems.
+
+##
+
+IDP
+
+Service Provider
+
+Identity provider offers user authentication as a service. In simple words, you can add and manage your user accounts, groups in an Identity Provider which gives you a way to authenticate your users while accessing any of your services.
+
 一般提出单点服务的同时意味着要解决下面的三个问题
 
 - 单点登录

@@ -4,17 +4,30 @@
 
 ### Goroutine 的调度原理
 
-Goroutine 和线程的区别
-Goroutine 的实现、GPM 调度模型、调度状态及流转、调度原理、协作式抢占以及和网络库的协作
+- Goroutine 和线程的区别
+- Goroutine 的实现、GPM 调度模型、调度状态及流转、调度原理、协作式抢占以及和网络库的协作
+
+https://www.jianshu.com/p/105719434c29
+
+https://zboya.github.io/post/go_scheduler/
+
+https://studygolang.com/articles/16407
 
 ### 内存模型
 
 Go 的内存分配机制
 Go 内存分配的内部结构和分配机制
 
+https://deepu.tech/memory-management-in-golang/
+
+https://medium.com/a-journey-with-go/go-memory-management-and-allocation-a7396d430f44
+
 ### GC（垃圾回收）的原理
 
 GC 三色标记算法
+
+https://blog.golang.org/ismmkeynote
+
 GC 介绍、三色标记的实现原理、GC 的流程以及 GC 的一些优化方案
 
 ### channel 的消息通讯原理
@@ -22,14 +35,23 @@ GC 介绍、三色标记的实现原理、GC 的流程以及 GC 的一些优化�
 channel 的底层实现
 channel 的通讯机制、环形队列的结构、调度和唤醒的原理
 
+https://stackoverflow.com/questions/19621149/how-are-go-channels-implemented
+
 ## 模块 02：Go 语言实践 - 并行编程
 
 ### Memory Model
 
 Go 中内存模型和同步语义
+
+https://zhuanlan.zhihu.com/p/110032965
+https://golang.org/ref/mem
+https://golang.org/doc/
+
 内存模型：Happens Before、同步语义、channel 通讯、锁
 
 ### 并发特性并发编程模式
+
+https://blog.golang.org/pipelines
 
 Timeout、Pipeline、Cancellation、Fanout、errgroup 等模式
 利用 channel 完成并行开发的设计模式，包含超时控制、管道、扇出、errgroup 并发
@@ -39,6 +61,9 @@ Timeout、Pipeline、Cancellation、Fanout、errgroup 等模式
 
 Context 传播式传递有什么意义
 使用 Go 标准库 Context 的原理和最佳实践，包含超时控制、元数据传递、生命周期控制
+
+https://blog.golang.org/context
+https://levelup.gitconnected.com/context-in-golang-98908f042a57
 
 ## 模块 03：Go 语言实践 - 网络编程
 
