@@ -2,12 +2,12 @@
 
 # 第一部分 器、术、道
 
-- [第一章 - 综述](./Ch01/README.md)
+- [第 01 章 - 综述](./Ch01/README.md)
 	- [生态](./Ch01/ECO.md)
 
 # 第二部分 器
 
-- [第二章 - 工具](./Ch02/README.md)
+- [第 02 章 - 工具](./Ch02/README.md)
 	- [os](./Ch02/os/README.md)
 		- [macOS](./Ch02/os/macOS.md)
 		- [ubuntu](./Ch02/os/ubuntu.md)
@@ -17,7 +17,11 @@
 		- [PyCharm](./Ch02/editor/pycharm.md)
 	- [Input](./Ch02/input/README.md)
 
-- [第三章 - 语言](./Ch03/README.md)
+- [第 03 章 - 语言](./Ch03/README.md)
+  - [编程语言](./Ch03/essential/summary.md)
+    - [Exception Handling](./Ch03/essential/exception_handling.md)
+    - [Garbage collection](./Ch03/essential/garbage_collection.md)
+    - [Test](./Ch03/essential/test.md)
 	- [Shell](./Ch03/shell/README.md)
 		- [Shell Modern](./Ch03/shell/modern_shell.md)
 		- [Oh My Zsh](./Ch03/shell/ohmyzsh.md)
@@ -36,7 +40,7 @@
 		- [构建工具](./Ch03/javascript/builder.md)
 		- [TypeScript](./Ch03/javascript/typescript.md)
 
-- [第四章 - 框架 / 库](./Ch04/README.md)
+- [第 04 章 - 框架 / 库](./Ch04/README.md)
 	- [后端](./Ch04/backend/README.md)
 		- [Django](./Ch04/backend/django.md)
 			- [Django ORM](./Ch04/backend/django_orm.md)
@@ -54,7 +58,7 @@
 
 # 第三部分 术
 
-- [第五章 - 数据中间件](./Ch05/README.md)
+- [第 05 章 - 数据中间件](./Ch05/README.md)
 	- [关系型数据库](./Ch05/sql/README.md)
 		- [MySQL](./Ch05/sql/mysql.md)
 		- [PostgreSQL](./Ch05/sql/postgres.md)
@@ -67,13 +71,13 @@
 		- [RabbitMQ](./Ch05/mq/rabbitmq.md)
 		- [Kafka](./Ch05/mq/kafka.md)
 
-- [第六章 - 代码质量](./Ch06/README.md)
+- [第 06 章 - 代码质量](./Ch06/README.md)
 	- [Golang](./Ch06/golang.md)
 
-- [第七章 - 分布式](./Ch07/README.md)
+- [第 07 章 - 分布式](./Ch07/README.md)
 	- [设计模式的本质](./Ch07/golang.md)
 
-- [第八章 - 案例](./Ch08/README.md)
+- [第 08 章 - 案例](./Ch08/README.md)
 	- [技术方案](./Ch08/biz/README.md)
 		- [单点登陆](./Ch08/biz/sso.md)
 		- [Rest vs GraphQL](./Ch08/biz/rest.md)
@@ -83,9 +87,9 @@
 
 # 第四部分 道
 
-- [第九章 - 道](./Ch09/README.md)
+- [第 09 章 - 道](./Ch09/README.md)
 	- [编程语言](./Ch09/02_programming_language.md)
 	- [代码质量](./Ch09/02_code_quanlity.md)
 
-- [第十章 - 道](./Ch10/README.md)
+- [第 10 章 - 道](./Ch10/README.md)
 	- [企业架构本质](./Ch10/01_yewu.md)
